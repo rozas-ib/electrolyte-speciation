@@ -62,13 +62,3 @@ run_analysis(config)
 
 `AnalysisConfig` and `SpeciesSpec` are also public, so configurations can be
 constructed directly in Python for programmatic workflows.
-
-## Development
-
-```bash
-pytest
-```
-
-Trajectory and output files are intentionally excluded from version control.
-Before a public release, add a license that reflects the rights holder's choice
-and add the paper citation/DOI when available.
