@@ -1,6 +1,6 @@
-# Speciation
+# Electrolyte speciation for MD trajectories
 
-Speciation is a Python library and command-line tool for analysing
+electrolyte-speciation is a Python library and command-line tool for analysing
 molecular-dynamics trajectories with [MDAnalysis](https://www.mdanalysis.org/).
 It calculates coordination numbers, Free/SSIP/CIP/AGG ion-pairing populations,
 local-composition state frequencies, and radial distribution functions (RDFs)
