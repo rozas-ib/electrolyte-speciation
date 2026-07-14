@@ -1,0 +1,123 @@
+# Tested LiFSI in DME:TOL configuration. Set the input paths for your system.
+
+[analysis]
+topology_file = "traj.tpr"
+trajectory_file = "traj.xtc"
+output_dir = "speciation_outputs"
+write_counts_instead_of_fractions = false
+
+[execution]
+start_frame = 0
+# stop_frame = 1000
+step_frame = 1
+apply_unwrap = true
+guess_bonds_if_missing = false
+
+[reference]
+selection = "resname Li"
+mode = "atoms"
+
+[pairing]
+cut1 = 3.0
+cut2 = 8.0
+
+[state]
+include_shell2 = false
+count_cap = 4
+top_states_n = 15
+
+[rdf]
+rmax = 20.0
+nbins = 1000
+compute_total = true
+
+[[species]]
+name = "FSI"
+target_sel = "resname FSI"
+target_mode = "residue_com"
+rule = "POINT"
+atleast_k = 1
+cut1 = 3.0
+cut2 = 8.0
+enabled = true
+include_in_state = false
+pairing_partner = false
+compute_rdf = true
+
+[[species]]
+name = "FSI_solv"
+target_sel = "resname FSI and name O*"
+target_mode = "atoms"
+rule = "RESIDUE_ANY"
+atleast_k = 1
+cut1 = 3.0
+cut2 = 8.0
+enabled = true
+include_in_state = true
+pairing_partner = true
+compute_rdf = true
+
+[[species]]
+name = "DME_solv"
+target_sel = "resname DME and name O*"
+target_mode = "atoms"
+rule = "RESIDUE_ANY"
+atleast_k = 1
+cut1 = 3.0
+cut2 = 8.0
+enabled = true
+include_in_state = true
+pairing_partner = false
+compute_rdf = true
+
+[[species]]
+name = "TOL"
+target_sel = "resname TOL"
+target_mode = "residue_com"
+rule = "POINT"
+atleast_k = 1
+cut1 = 3.0
+cut2 = 8.0
+enabled = true
+include_in_state = true
+pairing_partner = false
+compute_rdf = true
+
+[[species]]
+name = "FSI_oxygencount"
+target_sel = "resname FSI and name O*"
+target_mode = "atoms"
+rule = "ATOMWISE"
+atleast_k = 1
+cut1 = 3.0
+cut2 = 8.0
+enabled = true
+include_in_state = false
+pairing_partner = false
+compute_rdf = true
+
+[[species]]
+name = "DME_oxygencount"
+target_sel = "resname DME and name O*"
+target_mode = "atoms"
+rule = "ATOMWISE"
+atleast_k = 1
+cut1 = 3.0
+cut2 = 8.0
+enabled = true
+include_in_state = false
+pairing_partner = false
+compute_rdf = true
+
+[[species]]
+name = "FSI_nitrogencount"
+target_sel = "resname FSI and name N*"
+target_mode = "atoms"
+rule = "ATOMWISE"
+atleast_k = 1
+cut1 = 3.0
+cut2 = 8.0
+enabled = true
+include_in_state = false
+pairing_partner = false
+compute_rdf = true

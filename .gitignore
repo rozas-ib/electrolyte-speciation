@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Analysis inputs and generated results
+speciation_outputs/
+*.tpr
+*.trr
+*.xtc
+*.xtc_offsets.npz
+*.edr
+*.log
+*~
